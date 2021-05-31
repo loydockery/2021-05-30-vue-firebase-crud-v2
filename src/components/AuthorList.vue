@@ -12,6 +12,7 @@
         <td>{{ firstName }}</td>
         <td>{{ lastName }}</td>
         <td>
+          <router-link :to="`/edit/${id}`"> <button>Edit</button> </router-link>
           <button @click="deleteAuthor(id)">Delete Author</button>
         </td>
       </tr>

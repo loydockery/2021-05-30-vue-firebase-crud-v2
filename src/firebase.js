@@ -16,9 +16,13 @@ export const createUser = user => {
   return usersCollection.add(user)
 }
 
+// CREATE
+
 export const createAuthor = user => {
   return authorsCollection.add(user)
 }
+
+// READ
 
 export const loadAuthors = () => {
   const authors = ref([])
@@ -28,6 +32,18 @@ export const loadAuthors = () => {
   onUnmounted(close)
   return authors
 }
+
+export const getAuthor = async id => {
+  const author = await authorsCollection.doc(id).get()
+  return author.exists ? author.data() : null
+}
+
+// UPDATE
+
+export const updateAuthor = (id, author) => {
+  return authorsCollection.doc(id).update(author)
+}
+// DELETE
 
 export const deleteAuthor = id => {
   return authorsCollection.doc(id).delete()
