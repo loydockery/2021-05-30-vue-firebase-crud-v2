@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ['plugin:vue/vue3-essential', 'eslint:recommended', '@vue/prettier'],
+  extends: ['plugin:vue/vue3-recommended', 'eslint:recommended', '@vue/prettier'],
   parserOptions: {
     parser: 'babel-eslint'
   },
@@ -13,7 +13,12 @@ module.exports = {
     // "prettier/prettier": ["error", {"singleQuote": true, "parser": "flow"}]
     'prettier/prettier': [
       'error',
-      { singleQuote: true, endOfLine: 'auto', semi: false }
+      {
+        singleQuote: true,
+        endOfLine: 'auto',
+        semi: false,
+        arrowParens: 'avoid'
+      }
     ]
   }
 }
