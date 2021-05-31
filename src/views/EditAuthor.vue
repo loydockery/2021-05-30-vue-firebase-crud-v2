@@ -1,6 +1,6 @@
 <template>
-  <div id="Edit">
-    <h1>EDIT</h1>
+  <div id="EditAuthor">
+    <h1>EDIT AUTHOR</h1>
     <form @submit.prevent="update">
       <div>
         <label>firstName</label>
