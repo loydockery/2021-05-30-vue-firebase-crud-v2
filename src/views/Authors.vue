@@ -1,9 +1,15 @@
 <template>
-  <h1>ABOUT</h1>
+  <!-- <div> -->
+  <UserCreate />
+  <!-- <h1>hello</h1> -->
+  <!-- </div> -->
 </template>
 
 <script>
-export default {}
-</script>
+import UserCreate from '../components/UserCreate.vue'
 
-<style></style>
+export default {
+  name: 'Authors',
+  components: { UserCreate },
+}
+</script>
