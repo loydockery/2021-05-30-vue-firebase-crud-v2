@@ -28,3 +28,7 @@ export const loadAuthors = () => {
   onUnmounted(close)
   return authors
 }
+
+export const deleteAuthor = id => {
+  return authorsCollection.doc(id).delete()
+}
