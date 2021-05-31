@@ -9,7 +9,12 @@ const firebaseApp = firebase.initializeApp({
 
 const db = firebaseApp.firestore()
 const usersCollection = db.collection('users')
+const authorsCollection = db.collection('authors')
 
 export const createUser = user => {
   return usersCollection.add(user)
+}
+
+export const createAuthor = user => {
+  return authorsCollection.add(user)
 }
