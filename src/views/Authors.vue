@@ -1,8 +1,8 @@
 <template>
-  <!-- <div> -->
-  <UserCreate />
-  <!-- <h1>hello</h1> -->
-  <!-- </div> -->
+  <div id="authors">
+    <h1>AUTHORS</h1>
+    <UserCreate />
+  </div>
 </template>
 
 <script>

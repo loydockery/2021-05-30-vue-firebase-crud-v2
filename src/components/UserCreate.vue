@@ -1,22 +1,17 @@
 <template>
-  <div class="card card-body mt-4">
+  <div id="UserCreate">
     <form @submit.prevent="onSubmit">
-      <div class="form-group">
+      <div>
         <label>Name</label>
-        <input v-model="form.name" class="form-control" required />
+        <input v-model="form.name" required />
       </div>
 
-      <div class="form-group mt-3">
+      <div>
         <label>Email</label>
-        <input
-          v-model="form.email"
-          class="form-control"
-          type="email"
-          required
-        />
+        <input v-model="form.email" required />
       </div>
 
-      <button type="submit" class="btn btn-success mt-3">Create User</button>
+      <button type="submit">Create User</button>
     </form>
   </div>
 </template>
