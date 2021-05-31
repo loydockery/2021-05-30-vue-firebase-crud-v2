@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import { ref, onUnmounted } from 'vue'
 
 const firebaseApp = firebase.initializeApp({
   apiKey: 'AIzaSyAf4oUWXy5hRyDl3s_R-L9hWjeij7zfbhk',
@@ -17,4 +18,13 @@ export const createUser = user => {
 
 export const createAuthor = user => {
   return authorsCollection.add(user)
+}
+
+export const loadAuthors = () => {
+  const authors = ref([])
+  const close = authorsCollection.onSnapshot(snapshot => {
+    authors.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+  })
+  onUnmounted(close)
+  return authors
 }

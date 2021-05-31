@@ -1,5 +1,5 @@
 <template>
-  <div id="UserCreate">
+  <div id="AuthorCreate">
     <form @submit.prevent="onSubmit">
       <div>
         <label>First Name</label>
