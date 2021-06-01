@@ -25,6 +25,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "editAuthor" */ '../views/EditAuthor.vue'),
   },
+  {
+    path: '/editBook/:id',
+    name: 'EditBook',
+    component: () =>
+      import(/* webpackChunkName: "editBook" */ '../views/EditBook.vue'),
+  },
 ]
 
 const router = createRouter({

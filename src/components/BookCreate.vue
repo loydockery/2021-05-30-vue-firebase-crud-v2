@@ -2,13 +2,13 @@
   <div id="BookCreate">
     <form @submit.prevent="onSubmit">
       <div>
-        <label>First Name</label>
-        <input v-model="form.firstName" required />
+        <label>title</label>
+        <input v-model="form.title" required />
       </div>
 
       <div>
-        <label>Last Name</label>
-        <input v-model="form.lastName" required />
+        <label>authorId</label>
+        <input v-model="form.authorId" required />
       </div>
 
       <button type="submit">Create Book</button>
@@ -22,12 +22,12 @@ import { reactive } from 'vue'
 
 export default {
   setup() {
-    const form = reactive({ firstName: '', lastName: '' })
+    const form = reactive({ title: '', authorId: '' })
 
     const onSubmit = async () => {
       await createBook({ ...form })
-      form.firstName = ''
-      form.lastName = ''
+      form.title = ''
+      form.authorId = ''
     }
 
     return { form, onSubmit }

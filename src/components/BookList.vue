@@ -23,11 +23,12 @@
 </template>
 
 <script>
-import { loadBooks, deleteBook } from '@/firebase'
+import { loadBooks, deleteBook, getAuthor } from '@/firebase'
 
 export default {
   setup() {
     const books = loadBooks()
+    console.log('book list', books)
     return { books, deleteBook }
   },
 }

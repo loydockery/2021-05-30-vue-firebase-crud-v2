@@ -30,7 +30,7 @@ export default {
 
     onMounted(async () => {
       const author = await getAuthor(authorId.value)
-      console.log(author, authorId.value)
+      console.log('edit author', author, authorId.value)
       form.firstName = author.firstName
       form.lastName = author.lastName
     })
@@ -38,8 +38,8 @@ export default {
     const update = async () => {
       await updateAuthor(authorId.value, { ...form })
       router.push('/authors')
-      form.name = ''
-      form.email = ''
+      form.firstName = ''
+      form.lastName = ''
     }
 
     return { form, update }
