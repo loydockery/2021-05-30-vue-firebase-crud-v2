@@ -4,6 +4,7 @@
       <tr>
         <th>firstName</th>
         <th>lastName</th>
+        <th>id</th>
         <th>action</th>
       </tr>
     </thead>
@@ -11,11 +12,14 @@
       <tr v-for="{ id, firstName, lastName } in authors" :key="id">
         <td>{{ firstName }}</td>
         <td>{{ lastName }}</td>
+        <td>{{ id }}</td>
         <td>
           <router-link :to="`/editAuthor/${id}`">
             <button>Edit Author</button>
           </router-link>
-          <button class="notdoneyet">See Author</button>
+          <router-link :to="`/author/${id}`">
+            <button>See Author</button>
+          </router-link>
           <button class="notdoneyet">Add Book</button>
           <button class="notdoneyet">See Books</button>
           <button @click="deleteAuthor(id)">Delete Author</button>
@@ -37,8 +41,4 @@ export default {
 }
 </script>
 
-<style>
-.notdoneyet {
-  color: blue;
-}
-</style>
+<style></style>

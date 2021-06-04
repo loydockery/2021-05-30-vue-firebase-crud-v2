@@ -1,17 +1,8 @@
 <template>
-  <div id="EditAuthor">
-    <h1>EDIT AUTHOR</h1>
-    <form @submit.prevent="update">
-      <div>
-        <label>firstName</label>
-        <input v-model="form.firstName" required />
-      </div>
-      <div>
-        <label>lastName</label>
-        <input v-model="form.lastName" required />
-      </div>
-      <button type="submit">Update</button>
-    </form>
+  <div id="Author">
+    <h1>AUTHOR</h1>
+    <h2>{{ form.firstName }} {{ form.lastName }}</h2>
+    <AuthorBookList />
   </div>
 </template>
 
@@ -19,9 +10,11 @@
 import { reactive, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getAuthor, updateAuthor } from '@/firebase'
+import AuthorBookList from '@/components/AuthorBookList.vue'
 
 export default {
-  // name: 'Home',
+  name: 'Author',
+  components: { AuthorBookList },
   setup() {
     const router = useRouter()
     const route = useRoute()
@@ -30,7 +23,7 @@ export default {
 
     onMounted(async () => {
       const author = await getAuthor(authorId.value)
-      console.log('edit author', author, authorId.value, JSON.stringify(author))
+      console.log('edit author', author, authorId.value)
       form.firstName = author.firstName
       form.lastName = author.lastName
     })

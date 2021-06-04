@@ -1,5 +1,5 @@
 <template>
-  <table id="BookList">
+  <table id="AuthorBookList">
     <thead>
       <tr>
         <th>title</th>
@@ -15,6 +15,7 @@
           <router-link :to="`/editBook/${id}`">
             <button>Edit Book</button>
           </router-link>
+          <button class="notdoneyet">Add Book</button>
           <button @click="deleteBook(id)">Delete Book</button>
         </td>
       </tr>
@@ -23,12 +24,16 @@
 </template>
 
 <script>
-import { loadBooks, deleteBook } from '@/firebase'
+import { computed } from 'vue'
+import { loadBooksByAuthor, deleteBook } from '@/firebase'
+import { useRoute } from 'vue-router'
 
 export default {
   setup() {
-    const books = loadBooks()
-    console.log('book list', books)
+    const route = useRoute()
+    const authorId = computed(() => route.params.id)
+    const books = loadBooksByAuthor(authorId)
+    console.log('author book list', books)
     return { books, deleteBook }
   },
 }

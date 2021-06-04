@@ -1,6 +1,6 @@
 <template>
   <div id="EditBook">
-    <h1>EDIT BOOKS</h1>
+    <h1>EDIT BOOK</h1>
     <form @submit.prevent="update">
       <div>
         <label>title</label>
@@ -21,7 +21,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { getBook, updateBook } from '@/firebase'
 
 export default {
-  // name: 'Home',
+  name: 'EditBook',
   setup() {
     const router = useRouter()
     const route = useRoute()

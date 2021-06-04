@@ -22,12 +22,12 @@ export const createUser = user => {
   return usersCollection.add(user)
 }
 
-export const createAuthor = user => {
-  return authorsCollection.add(user)
+export const createAuthor = author => {
+  return authorsCollection.add(author)
 }
 
 export const createBook = book => {
-  return authorsCollection.add(book)
+  return booksCollection.add(book)
 }
 
 // READ load
@@ -46,6 +46,17 @@ export const loadBooks = () => {
   const close = booksCollection.onSnapshot(snapshot => {
     books.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
   })
+  onUnmounted(close)
+  return books
+}
+
+export const loadBooksByAuthor = id => {
+  const books = ref([])
+  const close = booksCollection
+    .where('authorId', '==', id.value)
+    .onSnapshot(snapshot => {
+      books.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+    })
   onUnmounted(close)
   return books
 }

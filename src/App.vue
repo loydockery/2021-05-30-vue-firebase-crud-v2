@@ -16,4 +16,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.notdoneyet {
+  color: blue;
+}
+</style>
